@@ -1,4 +1,3 @@
-com/uditkumawat/craftproject/model/Customer.class
 com/uditkumawat/craftproject/exception/NoSuchDriverExistsException.class
 com/uditkumawat/craftproject/repository/DriverRepository.class
 com/uditkumawat/craftproject/model/Driver.class

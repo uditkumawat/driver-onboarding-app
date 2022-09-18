@@ -1,6 +1,5 @@
 /Users/ukuwamat/Downloads/craftproject/src/main/java/com/uditkumawat/craftproject/exception/NoSuchDriverExistsException.java
 /Users/ukuwamat/Downloads/craftproject/src/main/java/com/uditkumawat/craftproject/repository/DriverRepository.java
-/Users/ukuwamat/Downloads/craftproject/src/main/java/com/uditkumawat/craftproject/model/Customer.java
 /Users/ukuwamat/Downloads/craftproject/src/main/java/com/uditkumawat/craftproject/model/Address.java
 /Users/ukuwamat/Downloads/craftproject/src/main/java/com/uditkumawat/craftproject/exception/PhoneNumberAlreadyExistsException.java
 /Users/ukuwamat/Downloads/craftproject/src/main/java/com/uditkumawat/craftproject/model/Driver.java

@@ -2,9 +2,11 @@ package com.uditkumawat.craftproject.controller;
 
 import com.uditkumawat.craftproject.model.Driver;
 import com.uditkumawat.craftproject.service.DriverService;
+import com.uditkumawat.craftproject.service.StorageService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,6 +17,10 @@ public class DriverController {
 
     @Autowired
     private DriverService driverService;
+
+    @Autowired
+    @Qualifier("DBStorageServiceImpl")
+    private StorageService storageService;
 
     @PostMapping("/driver")
     @ResponseStatus(HttpStatus.CREATED)
