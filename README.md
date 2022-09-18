@@ -1,2 +1,11 @@
 # Driver-onboarding-app
 Application Module for driver onboarding in Ride Management System
+
+Tech Stack Used:
+1. Java - Spring Boot
+2. Mysql DB
+3. Docker
+
+APIs for driver onboarding:
+1. For adding driver profile: POST /driver 
+2. For getting driver details based on id - GET /driver/{id}
