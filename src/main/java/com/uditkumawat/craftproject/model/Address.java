@@ -1,16 +1,20 @@
 package com.uditkumawat.craftproject.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 
 @Entity
-@Table(name="address")
+@Table(name="addresses")
 public class Address {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;
+    @Size(max=100)
     private String city;
+    @Size(max=100)
     private String state;
+    @Size(max=10)
     private int pinCode;
 
     @Id

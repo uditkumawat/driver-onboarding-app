@@ -1,6 +1,12 @@
 package com.uditkumawat.craftproject.model;
 
+import org.springframework.data.annotation.CreatedDate;
+
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.Date;
 
 @Entity
@@ -11,12 +17,38 @@ public class Driver {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;
+
+    @NotNull
+    @Size(max = 65)
     private String firstName;
+
+    @NotNull
+    @Size(max = 65)
     private String lastName;
+
+    @NotNull
+    @Email
+    @Size(max = 100)
+    @Column(unique = true)
     private String email;
+
+    @NotNull
+    @Size(max = 128)
+    private String password;
+
+    @NotNull
     private Address address;
+
+    @NotNull
+    @Size(max=15)
     private String phoneNumber;
+
+    @Column(nullable = false, updatable = false)
+    @Temporal(TemporalType.TIMESTAMP)
+    @CreatedDate
     private Date joinedDate;
+
+    @NotBlank
     private String driverLicenceNumber;
     private String currentVehicleId;
     private int rating;
