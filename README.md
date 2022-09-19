@@ -9,3 +9,6 @@ Tech Stack Used:
 APIs for driver onboarding:
 1. For adding driver profile: POST /driver 
 2. For getting driver details based on id - GET /driver/{id}
+3. For uploading documents - POST /uploadFile
+4. Mark driver ready for taking rides - PUT /driver/{driverId}/markActive
+5. Documents Verified - PUT /driver/{driverId}/documentsVerified
