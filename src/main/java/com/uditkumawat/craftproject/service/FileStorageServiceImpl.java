@@ -1,8 +1,9 @@
 package com.uditkumawat.craftproject.service;
 
 import com.uditkumawat.craftproject.config.FileStorageProperties;
+import com.uditkumawat.craftproject.exception.FileNotFoundException;
 import com.uditkumawat.craftproject.exception.FileStorageException;
-import com.uditkumawat.craftproject.exception.MyFileNotFoundException;
+import com.uditkumawat.craftproject.model.DocumentType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
@@ -36,7 +37,7 @@ public class FileStorageServiceImpl implements StorageService{
     }
 
     @Override
-    public String saveFile(MultipartFile file) {
+    public String saveFile(MultipartFile file, Long driverId, DocumentType documentType) {
         // Normalize file name
         String fileName = StringUtils.cleanPath(file.getOriginalFilename());
 
@@ -63,10 +64,10 @@ public class FileStorageServiceImpl implements StorageService{
             if(resource.exists()) {
                 return resource;
             } else {
-                throw new MyFileNotFoundException("File not found " + fileName);
+                throw new FileNotFoundException("File not found " + fileName);
             }
         } catch (MalformedURLException ex) {
-            throw new MyFileNotFoundException("File not found " + fileName, ex);
+            throw new FileNotFoundException("File not found " + fileName, ex);
         }
     }
 }

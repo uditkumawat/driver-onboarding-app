@@ -1,21 +1,24 @@
 package com.uditkumawat.craftproject.model;
 
-import org.springframework.data.annotation.CreatedDate;
+import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.Date;
+import java.io.Serializable;
+import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name="drivers")
-public class Driver {
+public class Driver implements Serializable {
 
     //primary key of table
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @Column(name="driverId",nullable = false,unique = true)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
 
     @NotNull
@@ -37,34 +40,50 @@ public class Driver {
     private String password;
 
     @NotNull
+    @Embedded
     private Address address;
 
     @NotNull
     @Size(max=15)
     private String phoneNumber;
 
-    @Column(nullable = false, updatable = false)
-    @Temporal(TemporalType.TIMESTAMP)
-    @CreatedDate
-    private Date joinedDate;
+    @Column(name="joined_date",nullable = false, updatable = false)
+    @CreationTimestamp
+    private LocalDateTime joinedDate;
 
     @NotBlank
     private String driverLicenceNumber;
-    private String currentVehicleId;
+
     private int rating;
-    private String longitude;
-    private String latitude;
+
+    private boolean documentsUploaded;
+
+    private boolean isVerified;
+
+    private boolean isActive;
+
+    @OneToMany(mappedBy = "driver", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<Document> documents;
 
     public Driver(){
 
     }
-    public Driver(String firstName,String lastName,String email,Address address,String phoneNumber,String driverLicenceNumber){
+
+    public Driver(Long id, String firstName, String lastName, String email, String password, Address address, String phoneNumber, LocalDateTime joinedDate, String driverLicenceNumber, int rating, boolean documentsUploaded, boolean isVerified, boolean isActive, List<Document> documents) {
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
+        this.password = password;
         this.address = address;
         this.phoneNumber = phoneNumber;
+        this.joinedDate = joinedDate;
         this.driverLicenceNumber = driverLicenceNumber;
+        this.rating = rating;
+        this.documentsUploaded = documentsUploaded;
+        this.isVerified = isVerified;
+        this.isActive = isActive;
+        this.documents = documents;
     }
 
     public String getFirstName() {
@@ -91,8 +110,6 @@ public class Driver {
         this.email = email;
     }
 
-    @OneToOne(cascade=CascadeType.ALL)
-    @JoinColumn(name="address_id",nullable = false)
     public Address getAddress() {
         return address;
     }
@@ -109,11 +126,11 @@ public class Driver {
         this.phoneNumber = phoneNumber;
     }
 
-    public Date getJoinedDate() {
+    public LocalDateTime getJoinedDate() {
         return joinedDate;
     }
 
-    public void setJoinedDate(Date joinedDate) {
+    public void setJoinedDate(LocalDateTime joinedDate) {
         this.joinedDate = joinedDate;
     }
 
@@ -125,14 +142,6 @@ public class Driver {
         this.driverLicenceNumber = driverLicenceNumber;
     }
 
-    public String getCurrentVehicleId() {
-        return currentVehicleId;
-    }
-
-    public void setCurrentVehicleId(String currentVehicleId) {
-        this.currentVehicleId = currentVehicleId;
-    }
-
     public int getRating() {
         return rating;
     }
@@ -141,28 +150,71 @@ public class Driver {
         this.rating = rating;
     }
 
-    public String getLongitude() {
-        return longitude;
-    }
-
-    public void setLongitude(String longitude) {
-        this.longitude = longitude;
-    }
-
-    public String getLatitude() {
-        return latitude;
-    }
-
-    public void setLatitude(String latitude) {
-        this.latitude = latitude;
-    }
-
     public void setId(Long id) {
         this.id = id;
     }
 
-    @Id
     public Long getId() {
         return id;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public boolean isDocumentsUploaded() {
+        return documentsUploaded;
+    }
+
+    public void setDocumentsUploaded(boolean documentsUploaded) {
+        this.documentsUploaded = documentsUploaded;
+    }
+
+    public boolean isVerified() {
+        return isVerified;
+    }
+
+    public void setVerified(boolean verified) {
+        isVerified = verified;
+    }
+
+    public boolean isActive() {
+        return isActive;
+    }
+
+    public void setActive(boolean active) {
+        isActive = active;
+    }
+
+    public List<Document> getDocuments() {
+        return documents;
+    }
+
+    public void setDocuments(List<Document> documents) {
+        this.documents = documents;
+    }
+
+    @Override
+    public String toString() {
+        return "Driver{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", address=" + address +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", joinedDate=" + joinedDate +
+                ", driverLicenceNumber='" + driverLicenceNumber + '\'' +
+                ", rating=" + rating +
+                ", documentsUploaded=" + documentsUploaded +
+                ", isVerified=" + isVerified +
+                ", isActive=" + isActive +
+                ", documents=" + documents +
+                '}';
     }
 }

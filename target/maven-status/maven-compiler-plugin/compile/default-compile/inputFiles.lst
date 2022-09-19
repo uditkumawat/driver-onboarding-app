@@ -9,7 +9,7 @@
 /Users/ukuwamat/Downloads/craftproject/src/main/java/com/uditkumawat/craftproject/MainApplication.java
 /Users/ukuwamat/Downloads/craftproject/src/main/java/com/uditkumawat/craftproject/model/UploadFileResponse.java
 /Users/ukuwamat/Downloads/craftproject/src/main/java/com/uditkumawat/craftproject/controller/DriverController.java
-/Users/ukuwamat/Downloads/craftproject/src/main/java/com/uditkumawat/craftproject/exception/MyFileNotFoundException.java
+/Users/ukuwamat/Downloads/craftproject/src/main/java/com/uditkumawat/craftproject/exception/FileNotFoundException.java
 /Users/ukuwamat/Downloads/craftproject/src/main/java/com/uditkumawat/craftproject/controller/FileUploadController.java
 /Users/ukuwamat/Downloads/craftproject/src/main/java/com/uditkumawat/craftproject/model/Address.java
 /Users/ukuwamat/Downloads/craftproject/src/main/java/com/uditkumawat/craftproject/service/DBStorageServiceImpl.java

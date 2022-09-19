@@ -17,7 +17,7 @@ com/uditkumawat/craftproject/service/DBStorageServiceImpl.class
 com/uditkumawat/craftproject/controller/DriverController.class
 com/uditkumawat/craftproject/service/DriverServiceImpl.class
 com/uditkumawat/craftproject/service/FileStorageServiceImpl.class
+com/uditkumawat/craftproject/exception/FileNotFoundException.class
 com/uditkumawat/craftproject/model/DocumentType.class
-com/uditkumawat/craftproject/exception/MyFileNotFoundException.class
 com/uditkumawat/craftproject/controller/FileUploadController.class
 com/uditkumawat/craftproject/exception/EmailAlreadyExistsException.class

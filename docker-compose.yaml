@@ -7,12 +7,12 @@ services:
       - "8080:8080"
     networks:
       - ride-service
-    depends_on:
-      - mysql
     environment:
       - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/driver?useSSL=false&allowPublicKeyRetrieval=true
       - SPRING_DATASOURCE_USERNAME=root
       - SPRING_DATASOURCE_PASSWORD=root
+    depends_on:
+      - mysql
 
   mysql:
     image: mysql:8

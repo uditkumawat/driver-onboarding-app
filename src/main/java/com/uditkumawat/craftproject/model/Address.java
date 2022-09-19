@@ -2,25 +2,22 @@ package com.uditkumawat.craftproject.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
+import java.io.Serializable;
 
-@Entity
-@Table(name="addresses")
-public class Address {
+@Embeddable
+public class Address implements Serializable {
 
-    @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
-    private Long id;
     @Size(max=100)
     private String city;
+
     @Size(max=100)
     private String state;
+
     @Size(max=10)
+    @Column(name="pin_code")
     private int pinCode;
 
-    @Id
-    public Long getId() {
-        return id;
-    }
+    public Address(){}
 
     public String getCity() {
         return city;
@@ -46,7 +43,18 @@ public class Address {
         this.pinCode = pinCode;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public Address(Long id, String city, String state, int pinCode, Driver driver) {
+        this.city = city;
+        this.state = state;
+        this.pinCode = pinCode;
+    }
+
+    @Override
+    public String toString() {
+        return "Address{" +
+                ", city='" + city + '\'' +
+                ", state='" + state + '\'' +
+                ", pinCode=" + pinCode +
+                '}';
     }
 }

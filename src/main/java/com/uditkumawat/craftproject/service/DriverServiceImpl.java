@@ -31,7 +31,7 @@ public class DriverServiceImpl implements DriverService{
     }
 
     @Override
-    public Driver get(long id) {
+    public Driver get(long id) throws NoSuchDriverExistsException{
 
         Optional<Driver> opt = driverRepository.findById(id);
         if(opt.isPresent()){
