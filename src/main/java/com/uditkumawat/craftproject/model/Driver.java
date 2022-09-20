@@ -44,6 +44,10 @@ public class Driver implements Serializable {
     private Address address;
 
     @NotNull
+    @Embedded
+    private Vehicle vehicle;
+
+    @NotNull
     @Size(max=15)
     private String phoneNumber;
 
@@ -69,13 +73,14 @@ public class Driver implements Serializable {
 
     }
 
-    public Driver(Long id, String firstName, String lastName, String email, String password, Address address, String phoneNumber, LocalDateTime joinedDate, String driverLicenceNumber, int rating, boolean documentsUploaded, boolean isVerified, boolean isActive, List<Document> documents) {
+    public Driver(Long id, String firstName, String lastName, String email, String password, Address address, Vehicle vehicle, String phoneNumber, LocalDateTime joinedDate, String driverLicenceNumber, int rating, boolean documentsUploaded, boolean isVerified, boolean isActive, List<Document> documents) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.password = password;
         this.address = address;
+        this.vehicle = vehicle;
         this.phoneNumber = phoneNumber;
         this.joinedDate = joinedDate;
         this.driverLicenceNumber = driverLicenceNumber;
@@ -198,6 +203,14 @@ public class Driver implements Serializable {
         this.documents = documents;
     }
 
+    public Vehicle getVehicle() {
+        return vehicle;
+    }
+
+    public void setVehicle(Vehicle vehicle) {
+        this.vehicle = vehicle;
+    }
+
     @Override
     public String toString() {
         return "Driver{" +
@@ -207,6 +220,7 @@ public class Driver implements Serializable {
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", address=" + address +
+                ", vehicle=" + vehicle +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", joinedDate=" + joinedDate +
                 ", driverLicenceNumber='" + driverLicenceNumber + '\'' +

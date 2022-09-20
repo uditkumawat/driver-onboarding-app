@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.server.ResponseStatusException;
 
 import javax.validation.Valid;
 
@@ -33,11 +32,31 @@ public class DriverController {
         }
     }
 
-    @GetMapping("/driver/{id}")
-    public Driver get(@PathVariable("id")long id) throws NoSuchDriverExistsException {
-        logger.info("Get Driver data for id {}",id);
+    @GetMapping("/driver/{driverId}")
+    public Driver get(@PathVariable("id")long driverId) throws NoSuchDriverExistsException {
+        logger.info("Get Driver data for driverId {}",driverId);
         try {
-            return driverService.get(id);
+            return driverService.get(driverId);
+        }catch(Exception ex){
+            throw ex;
+        }
+    }
+
+    @PutMapping("/driver/{driverId}/markActive")
+    public Driver markActive(@PathVariable long driverId) throws NoSuchDriverExistsException{
+        logger.info("Marking driverId - {} active",driverId);
+        try{
+            return driverService.markActive(driverId);
+        }catch(Exception ex){
+            throw ex;
+        }
+    }
+
+    @PutMapping("/driver/{driverId}/documentsVerified")
+    public Driver setVerifiedFlag(@PathVariable long driverId) throws NoSuchDriverExistsException{
+        logger.info("Setting isVerified flag for driverId - {}",driverId);
+        try{
+            return driverService.markActive(driverId);
         }catch(Exception ex){
             throw ex;
         }

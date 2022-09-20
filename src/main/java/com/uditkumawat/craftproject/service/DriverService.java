@@ -7,5 +7,9 @@ public interface DriverService {
 
     Driver save(Driver driver);
 
-    Driver get(long id) throws NoSuchDriverExistsException;
+    Driver get(long driverId) throws NoSuchDriverExistsException;
+
+    Driver markActive(long driverId) throws NoSuchDriverExistsException;
+
+    Driver setVerifiedFlag(long driverId) throws NoSuchDriverExistsException;
 }

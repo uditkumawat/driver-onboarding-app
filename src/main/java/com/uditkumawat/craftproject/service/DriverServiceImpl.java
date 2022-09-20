@@ -43,4 +43,38 @@ public class DriverServiceImpl implements DriverService{
             throw new NoSuchDriverExistsException("No driver exists with id "+id);
         }
     }
+
+    @Override
+    public Driver markActive(long driverId) throws NoSuchDriverExistsException{
+
+        Optional<Driver> opt = driverRepository.findById(driverId);
+        if(opt.isPresent()){
+            logger.info("Got driver details {} with id {} ",opt.get(),driverId);
+            Driver driver = opt.get();
+            driver.setActive(true);
+            logger.info("Updating driver - {} to be active for accepting rides",driverId);
+            return driverRepository.save(driver);
+        }
+        else{
+            logger.error("No such driver exists with id {}",driverId);
+            throw new NoSuchDriverExistsException("No driver exists with id "+driverId);
+        }
+    }
+
+    @Override
+    public Driver setVerifiedFlag(long driverId) throws NoSuchDriverExistsException{
+
+        Optional<Driver> opt = driverRepository.findById(driverId);
+        if(opt.isPresent()){
+            logger.info("Got driver details {} with id {} ",opt.get(),driverId);
+            Driver driver = opt.get();
+            driver.setVerified(true);
+            logger.info("Updating driver - {} to be verified",driverId);
+            return driverRepository.save(driver);
+        }
+        else{
+            logger.error("No such driver exists with id {}",driverId);
+            throw new NoSuchDriverExistsException("No driver exists with id "+driverId);
+        }
+    }
 }
