@@ -3,7 +3,7 @@ Application Module for driver onboarding in Ride Management System
 
 Flow diagram
 
-[![Flow Diagram](https://github.com/uditkumawat/driver-onboarding-app/blob/master/FlowDiagram.png)]
+![Flow Diagram](https://github.com/uditkumawat/driver-onboarding-app/blob/master/FlowDiagram.png)
 
 Tech Stack Used:
 1. Java - Spring Boot
