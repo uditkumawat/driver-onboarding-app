@@ -33,7 +33,7 @@ public class DriverController {
     }
 
     @GetMapping("/driver/{driverId}")
-    public Driver get(@PathVariable("id")long driverId) throws NoSuchDriverExistsException {
+    public Driver get(@PathVariable("driverId")long driverId) throws NoSuchDriverExistsException {
         logger.info("Get Driver data for driverId {}",driverId);
         try {
             return driverService.get(driverId);
@@ -43,7 +43,7 @@ public class DriverController {
     }
 
     @PutMapping("/driver/{driverId}/markActive")
-    public Driver markActive(@PathVariable long driverId) throws NoSuchDriverExistsException{
+    public Driver markActive(@PathVariable("driverId") long driverId) throws NoSuchDriverExistsException{
         logger.info("Marking driverId - {} active",driverId);
         try{
             return driverService.markActive(driverId);
@@ -53,10 +53,10 @@ public class DriverController {
     }
 
     @PutMapping("/driver/{driverId}/documentsVerified")
-    public Driver setVerifiedFlag(@PathVariable long driverId) throws NoSuchDriverExistsException{
+    public Driver setVerifiedFlag(@PathVariable("driverId") long driverId) throws NoSuchDriverExistsException{
         logger.info("Setting isVerified flag for driverId - {}",driverId);
         try{
-            return driverService.markActive(driverId);
+            return driverService.setVerifiedFlag(driverId);
         }catch(Exception ex){
             throw ex;
         }

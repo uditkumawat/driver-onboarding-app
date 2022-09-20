@@ -12,4 +12,6 @@ public interface DriverService {
     Driver markActive(long driverId) throws NoSuchDriverExistsException;
 
     Driver setVerifiedFlag(long driverId) throws NoSuchDriverExistsException;
+
+    Driver setDocumentsUploadedFlag(long driverId) throws NoSuchDriverExistsException;
 }
