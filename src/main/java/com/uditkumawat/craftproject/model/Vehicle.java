@@ -4,9 +4,10 @@ import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.io.Serializable;
 
 @Embeddable
-public class Vehicle {
+public class Vehicle implements Serializable {
 
     @Size(max=4)
     private int year;
