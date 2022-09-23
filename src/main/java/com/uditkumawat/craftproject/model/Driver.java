@@ -13,7 +13,7 @@ import java.util.List;
 
 @Entity
 @Table(name="drivers")
-public class Driver implements Serializable {
+public class Driver {
 
     //primary key of table
     @Id
@@ -58,13 +58,17 @@ public class Driver implements Serializable {
     @NotBlank
     private String driverLicenceNumber;
 
-    private int rating;
+    private double rating;
 
     private boolean documentsUploaded;
 
     private boolean isVerified;
 
     private boolean isActive;
+
+    private double longitude;
+
+    private double latitude;
 
     @OneToMany(mappedBy = "driver", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Document> documents;
@@ -73,7 +77,7 @@ public class Driver implements Serializable {
 
     }
 
-    public Driver(Long id, String firstName, String lastName, String email, String password, Address address, Vehicle vehicle, String phoneNumber, LocalDateTime joinedDate, String driverLicenceNumber, int rating, boolean documentsUploaded, boolean isVerified, boolean isActive, List<Document> documents) {
+    public Driver(Long id, String firstName, String lastName, String email, String password, Address address, Vehicle vehicle, String phoneNumber, LocalDateTime joinedDate, String driverLicenceNumber, double rating, boolean documentsUploaded, boolean isVerified, boolean isActive, double longitude, double latitude, List<Document> documents) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -88,6 +92,8 @@ public class Driver implements Serializable {
         this.documentsUploaded = documentsUploaded;
         this.isVerified = isVerified;
         this.isActive = isActive;
+        this.longitude = longitude;
+        this.latitude = latitude;
         this.documents = documents;
     }
 
@@ -147,11 +153,11 @@ public class Driver implements Serializable {
         this.driverLicenceNumber = driverLicenceNumber;
     }
 
-    public int getRating() {
+    public double getRating() {
         return rating;
     }
 
-    public void setRating(int rating) {
+    public void setRating(double rating) {
         this.rating = rating;
     }
 
@@ -228,6 +234,8 @@ public class Driver implements Serializable {
                 ", documentsUploaded=" + documentsUploaded +
                 ", isVerified=" + isVerified +
                 ", isActive=" + isActive +
+                ", longitude=" + longitude +
+                ", latitude=" + latitude +
                 ", documents=" + documents +
                 '}';
     }

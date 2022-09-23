@@ -1,5 +1,6 @@
 package com.uditkumawat.craftproject.controller;
 
+import com.uditkumawat.craftproject.exception.FileStorageException;
 import com.uditkumawat.craftproject.exception.NoSuchDriverExistsException;
 import com.uditkumawat.craftproject.model.DocumentType;
 import com.uditkumawat.craftproject.model.UploadFileResponse;
@@ -34,7 +35,7 @@ public class DocumentsUploadController {
     @PostMapping("/uploadFile")
     public UploadFileResponse uploadFile(@RequestParam("file") MultipartFile file,
                                          @RequestParam("driverId") Long driverId,
-                                         @RequestParam("docType") DocumentType docType) throws NoSuchDriverExistsException {
+                                         @RequestParam("docType") DocumentType docType) throws NoSuchDriverExistsException, FileStorageException {
 
         logger.info("Document upload for driverId {} and documentType {}", driverId, docType);
         try {

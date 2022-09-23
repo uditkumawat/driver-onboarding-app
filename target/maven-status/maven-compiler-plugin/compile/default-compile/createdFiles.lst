@@ -2,6 +2,7 @@ com/uditkumawat/craftproject/model/Document.class
 com/uditkumawat/craftproject/repository/DriverRepository.class
 com/uditkumawat/craftproject/exception/PhoneNumberAlreadyExistsException.class
 com/uditkumawat/craftproject/repository/DocumentRepository.class
+com/uditkumawat/craftproject/controller/DocumentsUploadController.class
 com/uditkumawat/craftproject/service/DriverService.class
 com/uditkumawat/craftproject/model/Vehicle.class
 com/uditkumawat/craftproject/config/FileStorageProperties.class
@@ -10,7 +11,6 @@ com/uditkumawat/craftproject/service/DBStorageServiceImpl.class
 com/uditkumawat/craftproject/controller/DriverController.class
 com/uditkumawat/craftproject/service/DriverServiceImpl.class
 com/uditkumawat/craftproject/exception/FileNotFoundException.class
-com/uditkumawat/craftproject/controller/FileUploadController.class
 com/uditkumawat/craftproject/exception/EmailAlreadyExistsException.class
 com/uditkumawat/craftproject/model/VehicleType.class
 com/uditkumawat/craftproject/service/StorageService.class
@@ -19,7 +19,7 @@ com/uditkumawat/craftproject/exception/NoSuchDriverExistsException.class
 com/uditkumawat/craftproject/model/Driver.class
 com/uditkumawat/craftproject/config/SwaggerConfig.class
 com/uditkumawat/craftproject/model/UploadFileResponse.class
-com/uditkumawat/craftproject/MainApplication.class
 com/uditkumawat/craftproject/model/Address.class
 com/uditkumawat/craftproject/service/FileStorageServiceImpl.class
+com/uditkumawat/craftproject/DriverOnboardingApplication.class
 com/uditkumawat/craftproject/model/DocumentType.class

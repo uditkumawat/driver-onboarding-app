@@ -40,7 +40,7 @@ public class DriverServiceImpl implements DriverService{
         }
         else{
             logger.error("No such driver exists with id {}",id);
-            throw new NoSuchDriverExistsException("No driver exists with id "+id);
+            throw new NoSuchDriverExistsException("No driver exists with id");
         }
     }
 

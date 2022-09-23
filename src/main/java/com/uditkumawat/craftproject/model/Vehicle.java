@@ -2,13 +2,11 @@ package com.uditkumawat.craftproject.model;
 
 import javax.persistence.Embeddable;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
-import java.io.Serializable;
 
 @Embeddable
-public class Vehicle implements Serializable {
+public class Vehicle {
 
-    @Size(max=4)
+    @NotNull
     private int year;
 
     @NotNull

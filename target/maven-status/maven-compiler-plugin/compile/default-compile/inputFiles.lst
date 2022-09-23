@@ -1,7 +1,6 @@
 /Users/ukuwamat/Downloads/craftproject/src/main/java/com/uditkumawat/craftproject/service/FileStorageServiceImpl.java
 /Users/ukuwamat/Downloads/craftproject/src/main/java/com/uditkumawat/craftproject/model/DocumentType.java
 /Users/ukuwamat/Downloads/craftproject/src/main/java/com/uditkumawat/craftproject/service/AWSStorageServiceImpl.java
-/Users/ukuwamat/Downloads/craftproject/src/main/java/com/uditkumawat/craftproject/MainApplication.java
 /Users/ukuwamat/Downloads/craftproject/src/main/java/com/uditkumawat/craftproject/model/UploadFileResponse.java
 /Users/ukuwamat/Downloads/craftproject/src/main/java/com/uditkumawat/craftproject/controller/DriverController.java
 /Users/ukuwamat/Downloads/craftproject/src/main/java/com/uditkumawat/craftproject/model/Vehicle.java
@@ -13,13 +12,14 @@
 /Users/ukuwamat/Downloads/craftproject/src/main/java/com/uditkumawat/craftproject/model/Document.java
 /Users/ukuwamat/Downloads/craftproject/src/main/java/com/uditkumawat/craftproject/exception/NoSuchDriverExistsException.java
 /Users/ukuwamat/Downloads/craftproject/src/main/java/com/uditkumawat/craftproject/repository/DriverRepository.java
+/Users/ukuwamat/Downloads/craftproject/src/main/java/com/uditkumawat/craftproject/controller/DocumentsUploadController.java
 /Users/ukuwamat/Downloads/craftproject/src/main/java/com/uditkumawat/craftproject/config/SwaggerConfig.java
 /Users/ukuwamat/Downloads/craftproject/src/main/java/com/uditkumawat/craftproject/exception/PhoneNumberAlreadyExistsException.java
 /Users/ukuwamat/Downloads/craftproject/src/main/java/com/uditkumawat/craftproject/exception/EmailAlreadyExistsException.java
-/Users/ukuwamat/Downloads/craftproject/src/main/java/com/uditkumawat/craftproject/controller/FileUploadController.java
 /Users/ukuwamat/Downloads/craftproject/src/main/java/com/uditkumawat/craftproject/model/Address.java
 /Users/ukuwamat/Downloads/craftproject/src/main/java/com/uditkumawat/craftproject/service/DBStorageServiceImpl.java
 /Users/ukuwamat/Downloads/craftproject/src/main/java/com/uditkumawat/craftproject/service/DriverService.java
 /Users/ukuwamat/Downloads/craftproject/src/main/java/com/uditkumawat/craftproject/service/DriverServiceImpl.java
+/Users/ukuwamat/Downloads/craftproject/src/main/java/com/uditkumawat/craftproject/DriverOnboardingApplication.java
 /Users/ukuwamat/Downloads/craftproject/src/main/java/com/uditkumawat/craftproject/exception/FileStorageException.java
 /Users/ukuwamat/Downloads/craftproject/src/main/java/com/uditkumawat/craftproject/model/VehicleType.java

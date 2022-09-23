@@ -1,5 +1,6 @@
 package com.uditkumawat.craftproject.controller;
 
+import com.uditkumawat.craftproject.exception.EmailAlreadyExistsException;
 import com.uditkumawat.craftproject.exception.NoSuchDriverExistsException;
 import com.uditkumawat.craftproject.model.Driver;
 import com.uditkumawat.craftproject.service.DriverService;
@@ -26,7 +27,7 @@ public class DriverController {
 
     @PostMapping("/driver")
     @ResponseStatus(HttpStatus.CREATED)
-    public Driver add(@Valid @RequestBody Driver driver){
+    public Driver add(@Valid @RequestBody Driver driver) throws EmailAlreadyExistsException {
         logger.info("Got Driver data {} for saving into DB ",driver);
         try {
             return driverService.save(driver);

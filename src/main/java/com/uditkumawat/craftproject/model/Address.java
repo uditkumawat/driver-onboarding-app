@@ -5,7 +5,7 @@ import javax.validation.constraints.Size;
 import java.io.Serializable;
 
 @Embeddable
-public class Address implements Serializable {
+public class Address{
 
     @Size(max=100)
     private String street;
