@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
+/**
+ * Controller for handling all API request related to driver
+ */
 @RestController
 @Validated
 public class DriverController {
@@ -24,20 +27,22 @@ public class DriverController {
     @PostMapping("/driver")
     @ResponseStatus(HttpStatus.CREATED)
     public Driver add(@Valid @RequestBody Driver driver){
-        logger.info("Got Driver data {} for saving ",driver);
+        logger.info("Got Driver data {} for saving into DB ",driver);
         try {
             return driverService.save(driver);
         }catch(Exception ex){
+            logger.error("Exception occurred while inserting driver details {}",driver);
             throw ex;
         }
     }
 
     @GetMapping("/driver/{driverId}")
     public Driver get(@PathVariable("driverId")long driverId) throws NoSuchDriverExistsException {
-        logger.info("Get Driver data for driverId {}",driverId);
+        logger.info("Getting Driver profile for driverId {}",driverId);
         try {
             return driverService.get(driverId);
         }catch(Exception ex){
+            logger.error("Exception occurred while getting driver details for driverId - {}",driverId);
             throw ex;
         }
     }
@@ -48,6 +53,7 @@ public class DriverController {
         try{
             return driverService.markActive(driverId);
         }catch(Exception ex){
+            logger.error("Exception while marking driver profile to Active for driverId - {}",driverId);
             throw ex;
         }
     }
@@ -58,6 +64,7 @@ public class DriverController {
         try{
             return driverService.setVerifiedFlag(driverId);
         }catch(Exception ex){
+            logger.error("Exception while marking isVerified flag for driverId - {}",driverId);
             throw ex;
         }
     }

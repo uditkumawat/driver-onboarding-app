@@ -6,6 +6,8 @@ import com.uditkumawat.craftproject.model.DocumentType;
 import com.uditkumawat.craftproject.model.Driver;
 import com.uditkumawat.craftproject.repository.DocumentRepository;
 import com.uditkumawat.craftproject.repository.DriverRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
@@ -16,6 +18,8 @@ import java.io.IOException;
 @Service
 public class DBStorageServiceImpl implements StorageService{
 
+    private static final Logger logger = LoggerFactory.getLogger(DBStorageServiceImpl.class);
+
     @Autowired
     private DriverRepository driverRepository;
 
@@ -23,7 +27,7 @@ public class DBStorageServiceImpl implements StorageService{
     private DocumentRepository documentRepository;
 
     @Override
-    public String saveFile(MultipartFile file,Long driverId,DocumentType documentType) {
+    public String saveFile(MultipartFile file,Long driverId,DocumentType documentType) throws FileStorageException{
         // Normalize file name
         String fileName = StringUtils.cleanPath(file.getOriginalFilename());
 
@@ -39,6 +43,9 @@ public class DBStorageServiceImpl implements StorageService{
             return fileName;
         } catch (IOException ex) {
             throw new FileStorageException("Could not store file " + fileName + ". Please try again!", ex);
+        } catch(Exception ex){
+            logger.error("Exception occurred while saving file for driverId {} and docType {}",driverId,documentType,ex);
+            throw ex;
         }
     }
 }

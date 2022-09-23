@@ -20,7 +20,7 @@ public class DriverServiceImpl implements DriverService{
     DriverRepository driverRepository;
 
     @Override
-    public Driver save(Driver driver) {
+    public Driver save(Driver driver) throws EmailAlreadyExistsException{
         Driver driverDB = driverRepository.findByEmail(driver.getEmail());
         if(driverDB!=null) {
             logger.error("Driver with same email already exists {}",driverDB.getEmail());

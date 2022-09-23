@@ -11,13 +11,13 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 @EnableConfigurationProperties({
 		FileStorageProperties.class
 })
-public class MainApplication {
+public class DriverOnboardingApplication {
 
-	private static final Logger logger = LoggerFactory.getLogger(MainApplication.class);
+	private static final Logger logger = LoggerFactory.getLogger(DriverOnboardingApplication.class);
 
 	public static void main(String[] args) {
-		logger.info("Service in starting mode");
-		SpringApplication.run(MainApplication.class);
+		logger.info("Driver onboarding service is starting");
+		SpringApplication.run(DriverOnboardingApplication.class);
 		logger.info("Service started");
 	}
 }

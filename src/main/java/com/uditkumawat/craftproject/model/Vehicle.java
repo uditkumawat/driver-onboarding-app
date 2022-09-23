@@ -1,6 +1,5 @@
 package com.uditkumawat.craftproject.model;
 
-import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -18,10 +17,10 @@ public class Vehicle implements Serializable {
     @NotNull
     private String model;
 
-    @Column(name="vehicle_number")
+    @NotNull
     private String vehicleNumber;
 
-    @Column(name="vehicle_type")
+    @NotNull
     private VehicleType vehicleType;
 
     @NotNull

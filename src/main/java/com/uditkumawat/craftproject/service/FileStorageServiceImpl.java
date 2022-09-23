@@ -24,7 +24,7 @@ public class FileStorageServiceImpl implements StorageService{
     private final Path fileStorageLocation;
 
     @Autowired
-    public FileStorageServiceImpl(FileStorageProperties fileStorageProperties){
+    public FileStorageServiceImpl(FileStorageProperties fileStorageProperties) throws FileStorageException{
         this.fileStorageLocation = Paths.get(fileStorageProperties.getUploadDir())
                 .toAbsolutePath().normalize();
 
@@ -37,7 +37,7 @@ public class FileStorageServiceImpl implements StorageService{
     }
 
     @Override
-    public String saveFile(MultipartFile file, Long driverId, DocumentType documentType) {
+    public String saveFile(MultipartFile file, Long driverId, DocumentType documentType) throws FileStorageException{
         // Normalize file name
         String fileName = StringUtils.cleanPath(file.getOriginalFilename());
 
@@ -57,7 +57,7 @@ public class FileStorageServiceImpl implements StorageService{
         }
     }
 
-    public Resource loadFileAsResource(String fileName) {
+    public Resource loadFileAsResource(String fileName) throws FileNotFoundException{
         try {
             Path filePath = this.fileStorageLocation.resolve(fileName).normalize();
             Resource resource = new UrlResource(filePath.toUri());

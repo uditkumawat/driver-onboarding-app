@@ -83,7 +83,6 @@ public class Document {
                 ", documentName='" + documentName + '\'' +
                 ", documentType=" + documentType +
                 ", driver=" + driver +
-                ", data=" + Arrays.toString(data) +
                 '}';
     }
 }

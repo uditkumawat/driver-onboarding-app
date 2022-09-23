@@ -1,7 +1,7 @@
 package com.uditkumawat.craftproject.model;
 
 /**
- * To send the response back when the upload is successful.
+ * Model used for sending response back when the upload is successful.
  */
 public class UploadFileResponse {
     private String fileName;

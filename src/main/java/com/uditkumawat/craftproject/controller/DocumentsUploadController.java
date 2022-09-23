@@ -15,11 +15,14 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+/**
+ * Controller for handling API request for uploading documents.
+ */
 
 @RestController
-public class FileUploadController {
+public class DocumentsUploadController {
 
-    private static final Logger logger = LoggerFactory.getLogger(FileUploadController.class);
+    private static final Logger logger = LoggerFactory.getLogger(DocumentsUploadController.class);
 
     @Autowired
     @Qualifier("DBStorageServiceImpl")
@@ -33,6 +36,7 @@ public class FileUploadController {
                                          @RequestParam("driverId") Long driverId,
                                          @RequestParam("docType") DocumentType docType) throws NoSuchDriverExistsException {
 
+        logger.info("Document upload for driverId {} and documentType {}", driverId, docType);
         try {
             String fileName = storageService.saveFile(file, driverId, docType);
 
@@ -41,11 +45,13 @@ public class FileUploadController {
                     .path(fileName)
                     .toUriString();
 
+            //once the documents are uploaded , setting documentsUploaded flag to true
             driverService.setDocumentsUploadedFlag(driverId);
 
             return new UploadFileResponse(fileName, fileDownloadUri,
                     file.getContentType(), file.getSize());
         }catch(Exception ex){
+            logger.error("Exception while uploading document for driverId {} and documentType {}", driverId, docType);
             throw ex;
         }
     }

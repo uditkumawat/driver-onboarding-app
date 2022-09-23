@@ -8,6 +8,9 @@ import java.io.Serializable;
 public class Address implements Serializable {
 
     @Size(max=100)
+    private String street;
+
+    @Size(max=100)
     private String city;
 
     @Size(max=100)
@@ -43,7 +46,16 @@ public class Address implements Serializable {
         this.pinCode = pinCode;
     }
 
-    public Address(Long id, String city, String state, int pinCode, Driver driver) {
+    public String getStreet() {
+        return street;
+    }
+
+    public void setStreet(String street) {
+        this.street = street;
+    }
+
+    public Address(String street, String city, String state, int pinCode) {
+        this.street = street;
         this.city = city;
         this.state = state;
         this.pinCode = pinCode;
@@ -52,6 +64,7 @@ public class Address implements Serializable {
     @Override
     public String toString() {
         return "Address{" +
+                "street='" + street + '\'' +
                 ", city='" + city + '\'' +
                 ", state='" + state + '\'' +
                 ", pinCode=" + pinCode +
